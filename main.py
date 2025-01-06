@@ -15,13 +15,18 @@ def get_charcount(text):
         if character in chars:
             chars[character] += 1
     
-    print(chars)
+    return chars
 
 def main():
     path = "./books/frankenstein.txt"
     book = get_book_text(path)
     wordcount = get_wordcount(book)
-    print(f"\n{wordcount}")
-    get_charcount(book)
+    chars = get_charcount(book)
+
+    print(f"--- Begin report of {path} ---\n")
+    print(f"{wordcount} words found in the document")
+    for i in chars:
+        print(f"The letter {i} was found {chars[i]} times")
+    print("\n--- End report ---")
 
 main()
