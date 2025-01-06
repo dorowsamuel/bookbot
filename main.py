@@ -6,11 +6,22 @@ def get_book_text(path):
 def get_wordcount(text):
     return len(str.split(text))
 
+def get_charcount(text):
+    chars = {
+        "a": 0, "b": 0, "c": 0, "d": 0, "e": 0, "f": 0, "g": 0, "h": 0, "i": 0, "j": 0, "k": 0, "l": 0, "m": 0, "n": 0, "o": 0, "p": 0, "q": 0, "r": 0, "s": 0, "t": 0, "u": 0, "v": 0, "w": 0, "x": 0, "y": 0, "z": 0
+    }
+    lower_text = text.lower()
+    for character in list(lower_text):
+        if character in chars:
+            chars[character] += 1
+    
+    print(chars)
+
 def main():
     path = "./books/frankenstein.txt"
     book = get_book_text(path)
     wordcount = get_wordcount(book)
-    print(book)
     print(f"\n{wordcount}")
+    get_charcount(book)
 
 main()
